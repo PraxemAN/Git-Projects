@@ -14,27 +14,20 @@ namespace WindowsFormsControlLibrary.CenterApp
     public partial class SubForm : Form
     {
         Form opener;
-        private FormWindow formWindow;
+        private SubForm formWindow;
         private Helper helperC;
 
         private static int _xAxis = 0;
         private static int _yAxis = 0;
 
-
-        public SubForm()
-        {
-
-        }
-
         public SubForm(FormWindow formWindow)
         {
-            this.formWindow = formWindow;
+            formWindow = this;
+            //this.formWindow = formWindow;
             InitializeComponent();
             opener = ParentForm;
             helperC = new Helper(formWindow);
         }
-       
-
 
         private void SubForm_Load(object sender, EventArgs e)
         {
@@ -81,7 +74,7 @@ namespace WindowsFormsControlLibrary.CenterApp
             _yAxis--;
             helperC.AdjustText(false, false);
         }
-#endregion
+        #endregion
 
         #region getters and setters
         public string TextBoxUpArrow
@@ -108,7 +101,6 @@ namespace WindowsFormsControlLibrary.CenterApp
         public static int F2_xAxis { get { return _xAxis; } private set { _xAxis = value; } }
         public static int F2_yAxis { get { return _yAxis; } set { _yAxis = value; } }
         #endregion
-
 
     }
 }

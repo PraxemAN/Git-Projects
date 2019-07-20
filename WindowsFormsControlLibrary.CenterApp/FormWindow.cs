@@ -69,7 +69,7 @@ namespace WindowsFormsControlLibrary.CenterApp
         public FormWindow()
         {
             InitializeComponent();
-            thisWindow = FormWindow;
+            thisWindow = this;
         }
 
         //not sure if needed when dpi is considered
@@ -107,7 +107,7 @@ namespace WindowsFormsControlLibrary.CenterApp
                 //for debugging
                 MessageBox.Show("Pressed enter.");
 
-                
+
                 if (helperC.CheckText(true, textBoxArrowLeft.Text))
                 {
                     helperC.AdjustText(true, true);

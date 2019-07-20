@@ -25,9 +25,9 @@ namespace WindowsFormsControlLibrary.CenterApp
 
         //to utilize the methods I make my own instance
         //Method tempMethod = new Method();
-        Form thisWindow = Form;
+        Form thisWindow;
 
-        Helper helperC = new Helper(this.formWindow = )
+        Helper helperC = new Helper(thisWindow);
 
         #region DLL Imports
         //find window
@@ -44,22 +44,22 @@ namespace WindowsFormsControlLibrary.CenterApp
         public string TextBoxArrowRight
         {
             get => textBoxArrowRight.Text;
-            set { textBoxArrowRight.Text = value; }
+            internal set { textBoxArrowRight.Text = value; }
         }
         public string TextBoxArrowLeft
         {
             get => textBoxArrowLeft.Text;
-            set { textBoxArrowLeft.Text = value; }
+            internal set { textBoxArrowLeft.Text = value; }
         }
         public string TextBoxArrowUp
         {
             get => textBoxArrowUp.Text;
-            set { textBoxArrowUp.Text = value; }
+            internal set { textBoxArrowUp.Text = value; }
         }
         public string TextBoxArrowDown
         {
             get => textBoxArrowDown.Text;
-            set { textBoxArrowDown.Text = value; }
+            internal set { textBoxArrowDown.Text = value; }
         }
 
         public static int F1_xAxis { get { return _xAxis; } set { _xAxis = value; } }
@@ -69,7 +69,7 @@ namespace WindowsFormsControlLibrary.CenterApp
         public FormWindow()
         {
             InitializeComponent();
-            
+            thisWindow = FormWindow;
         }
 
         //not sure if needed when dpi is considered
@@ -108,9 +108,9 @@ namespace WindowsFormsControlLibrary.CenterApp
                 MessageBox.Show("Pressed enter.");
 
                 
-                if (tempMethod.CheckText(true, textBoxArrowLeft.Text))
+                if (helperC.CheckText(true, textBoxArrowLeft.Text))
                 {
-                    tempMethod.AdjustText(true, true, Int32.Parse(textBoxArrowLeft.Text));
+                    helperC.AdjustText(true, true);
                 }
             }
         }
@@ -140,28 +140,28 @@ namespace WindowsFormsControlLibrary.CenterApp
         private void ButtonArrowLeft_Click(object sender, EventArgs e)
         {
             _xAxis--;
-            tempMethod.AdjustText(true, true, _xAxis);
+            helperC.AdjustText(true, true);
         }
 
         //Adjust right
         private void ButtonArrowRight_Click(object sender, EventArgs e)
         {
             _xAxis++;
-            tempMethod.AdjustText(true, true, _xAxis);
+            helperC.AdjustText(true, true);
         }
 
         //Adjust up
         private void ButtonArrowUp_Click(object sender, EventArgs e)
         {
             _yAxis++;
-            tempMethod.AdjustText(true, false, _yAxis);
+            helperC.AdjustText(true, false);
         }
 
         //Adjust down
         private void ButtonArrowDown_Click(object sender, EventArgs e)
         {
             _yAxis--;
-            tempMethod.AdjustText(true, false, _yAxis);
+            helperC.AdjustText(true, false);
         }
         #endregion
 

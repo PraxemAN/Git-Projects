@@ -15,7 +15,7 @@ namespace WindowsFormsControlLibrary.CenterApp
     {
         Form opener;
         private FormWindow formWindow;
-        private Helper HelperC;
+        private Helper helperC;
 
         private static int _xAxis = 0;
         private static int _yAxis = 0;
@@ -31,7 +31,7 @@ namespace WindowsFormsControlLibrary.CenterApp
             this.formWindow = formWindow;
             InitializeComponent();
             opener = ParentForm;
-            HelperC = new Helper(formWindow);
+            helperC = new Helper(formWindow);
         }
        
 
@@ -58,28 +58,28 @@ namespace WindowsFormsControlLibrary.CenterApp
         private void ButtonLeftArrow_Click(object sender, EventArgs e)
         {
             _xAxis--;
-            tempMethod.AdjustText(false, true, _xAxis);
+            helperC.AdjustText(false, true);
         }
 
         //right button iteration
         private void ButtonRightArrow_Click(object sender, EventArgs e)
         {
             _xAxis++;
-            tempMethod.AdjustText(false, true, _xAxis);
+            helperC.AdjustText(false, true);
         }
 
         //up button iteration
         private void ButtonUpArrow_Click(object sender, EventArgs e)
         {
             _yAxis++;
-            tempMethod.AdjustText(false, false, _yAxis);
+            helperC.AdjustText(false, false);
         }
 
         //down button iteration
         private void ButtonDownArrow_Click(object sender, EventArgs e)
         {
             _yAxis--;
-            tempMethod.AdjustText(false, false, _yAxis);
+            helperC.AdjustText(false, false);
         }
 #endregion
 

@@ -14,14 +14,10 @@ namespace WindowsFormsControlLibrary.CenterApp
 {
     public partial class FormWindow : UserControl
     {
-        //contains desktop res + centered res 
-        //private int[,] _resArray = new int[2, 2];
-
         private static int _xAxis = 0;
         private static int _yAxis = 0;
 
-        //To prevent the deletion of text everytime the text box is focused on after the first time 
-        private bool firstDel = false;
+        private static bool firstDel = false;
 
         //to utilize the methods I make my own instance
         //Method tempMethod = new Method();
@@ -30,13 +26,14 @@ namespace WindowsFormsControlLibrary.CenterApp
         Helper helperC;
 
         #region DLL Imports
-        //find window
         [DllImport("user32.dll", SetLastError = true)]
         static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
-        //move window
         [DllImport("user32.dll", SetLastError = true)]
         static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
+        //[DllImport("user32.dll", SetLastError = false)]
+        //private static extern IntPtr GetDesktopWindow();
         #endregion
 
         #region getters and setters
@@ -73,23 +70,6 @@ namespace WindowsFormsControlLibrary.CenterApp
             helperC = new Helper(thisWindow);
         }
 
-        //not sure if needed when dpi is considered
-        //finds the center of a given double array
-        //private int[,] CenterRes(int[,] z)
-        //{
-        //    for (int j = 0; j < 1; j++)
-        //    {
-        //        z[1, j] = z[0, j / 2];
-        //    }
-        //    return z;
-        //}
-
-        //buttons enact the code not main
-        //public static void Main(String[] args)
-        //{
-        //}
-
-        //When form loads this code runs 
         private void UserControl1_Load(object sender, EventArgs e)
         {
             //note on the relations it seems to be deleting thme from the designer
@@ -117,7 +97,7 @@ namespace WindowsFormsControlLibrary.CenterApp
 
         private void TextAppSelect_GotFocus(object sender, EventArgs e)
         {
-            if (!firstDel) { textAppSelect.Clear(); firstDel = true; } //clear the text.
+            if (!firstDel) { textAppSelect.Clear(); firstDel = true; }
         }
 
         private void ButtonCenter_Click(object sender, EventArgs e)
@@ -158,18 +138,10 @@ namespace WindowsFormsControlLibrary.CenterApp
         }
         #endregion
 
-        //drop down menu adjust; Trying to get the other form to show; no code written on new form until this bears fruit
         private void CornerAdjustToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SubForm subForm = new SubForm(this);
             subForm.Show();
-            //SubForm nForm = new SubForm
-            //{
-            //    TopLevel = false
-            //};
-            //nForm.Show();
-            ////nForm.ShowDialog();
-            //this.Hide();
         }
 
         //clears appselect text box to make things quicker for user

@@ -57,14 +57,14 @@ namespace WindowsFormsControlLibrary.CenterApp
         /// <summary>
         /// Method both forms can call to avoid redundancy
         /// </summary>
-        /// <param name="_form">true for FormWindow, false for SubForm</param>
+        /// <param name="isFormWindow">true for FormWindow, false for SubForm</param>
         /// <param name="axis">true for X-Axis, false for Y-Axis</param>
         /// <param name="number">number needing placed</param>
-        internal void AdjustText(bool _form, bool axis)
+        internal void AdjustText(bool isFormWindow, bool axis)
         {
             UpdateFields();
 
-            if (_form) //FormWindow
+            if (isFormWindow) //FormWindow
             {
                 if (axis)
                 {
@@ -83,12 +83,12 @@ namespace WindowsFormsControlLibrary.CenterApp
                 {
                     if (_F1yAxis >= 0)
                     {
-                        _form tempF1.TextBoxArrowDown = blank;
+                        formWindow.TextBoxArrowDown = blank;
                     }
                     else if (_F1yAxis <= 0)
                     {
-                        tempF1.TextBoxArrowDown = _F1yAxis.ToString();
-                        tempF1.TextBoxArrowUp = blank;
+                        formWindow.TextBoxArrowDown = _F1yAxis.ToString();
+                        formWindow.TextBoxArrowUp = blank;
                     }
                 }
             }

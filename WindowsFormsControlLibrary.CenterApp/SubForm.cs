@@ -22,8 +22,8 @@ namespace WindowsFormsControlLibrary.CenterApp
 
         public SubForm(FormWindow formWindow)
         {
-            formWindow = this;
-            //this.formWindow = formWindow;
+            //formWindow = this;
+            this.formWindow = formWindow;
             InitializeComponent();
             opener = ParentForm;
             helperC = new Helper(formWindow);

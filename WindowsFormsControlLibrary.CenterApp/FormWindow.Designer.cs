@@ -73,7 +73,6 @@
             this.labelExplanation.Size = new System.Drawing.Size(149, 13);
             this.labelExplanation.TabIndex = 2;
             this.labelExplanation.Text = "Window Centering Application";
-            this.labelExplanation.Click += new System.EventHandler(this.LabelExplanation_Click);
             // 
             // buttonArrowRight
             // 

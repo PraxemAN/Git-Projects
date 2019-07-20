@@ -25,9 +25,9 @@ namespace WindowsFormsControlLibrary.CenterApp
 
         //to utilize the methods I make my own instance
         //Method tempMethod = new Method();
-        Form thisWindow;
+        FormWindow thisWindow;
 
-        Helper helperC = new Helper(thisWindow);
+        Helper helperC;
 
         #region DLL Imports
         //find window
@@ -70,6 +70,7 @@ namespace WindowsFormsControlLibrary.CenterApp
         {
             InitializeComponent();
             thisWindow = this;
+            helperC = new Helper(thisWindow);
         }
 
         //not sure if needed when dpi is considered
@@ -107,7 +108,6 @@ namespace WindowsFormsControlLibrary.CenterApp
                 //for debugging
                 MessageBox.Show("Pressed enter.");
 
-
                 if (helperC.CheckText(true, textBoxArrowLeft.Text))
                 {
                     helperC.AdjustText(true, true);
@@ -115,18 +115,11 @@ namespace WindowsFormsControlLibrary.CenterApp
             }
         }
 
-        //When the textAppSelect box is clicked on by user
         private void TextAppSelect_GotFocus(object sender, EventArgs e)
         {
             if (!firstDel) { textAppSelect.Clear(); firstDel = true; } //clear the text.
         }
 
-        private void LabelExplanation_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //Hitting the center button Do most of everything here
         private void ButtonCenter_Click(object sender, EventArgs e)
         {
             IntPtr hWnd = FindWindow(null, textAppSelect.Text);
@@ -168,7 +161,6 @@ namespace WindowsFormsControlLibrary.CenterApp
         //drop down menu adjust; Trying to get the other form to show; no code written on new form until this bears fruit
         private void CornerAdjustToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             SubForm subForm = new SubForm(this);
             subForm.Show();
             //SubForm nForm = new SubForm

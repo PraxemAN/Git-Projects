@@ -13,15 +13,13 @@ namespace WindowsFormsControlLibrary.CenterApp
 {
     public partial class SubForm : Form
     {
-
         Form opener;
         private FormWindow formWindow;
 
         private static int _xAxis = 0;
-        public static int F2_xAxis { get { return _xAxis; }  set { _xAxis = value; } }
-
         private static int _yAxis = 0;
-        public static int F2_yAxis { get { return _yAxis; } set { _yAxis = value; } }
+
+        Method tempMethod = new Method();
 
         public SubForm()
         {
@@ -52,12 +50,35 @@ namespace WindowsFormsControlLibrary.CenterApp
             this.Close();
         }
 
+        #region Arrow button calls
         //left button iteration
         private void ButtonLeftArrow_Click(object sender, EventArgs e)
         {
             _xAxis--;
-            Method.AdjustText(false, true, F2_xAxis);
+            tempMethod.AdjustText(false, true, _xAxis);
         }
+
+        //right button iteration
+        private void ButtonRightArrow_Click(object sender, EventArgs e)
+        {
+            _xAxis++;
+            tempMethod.AdjustText(false, true, _xAxis);
+        }
+
+        //up button iteration
+        private void ButtonUpArrow_Click(object sender, EventArgs e)
+        {
+            _yAxis++;
+            tempMethod.AdjustText(false, false, _yAxis);
+        }
+
+        //down button iteration
+        private void ButtonDownArrow_Click(object sender, EventArgs e)
+        {
+            _yAxis--;
+            tempMethod.AdjustText(false, false, _yAxis);
+        }
+#endregion
 
         #region getters and setters
         public string TextBoxUpArrow
@@ -80,6 +101,11 @@ namespace WindowsFormsControlLibrary.CenterApp
             get => textBoxRightArrow.Text;
             set { textBoxRightArrow.Text = value; }
         }
+
+        public static int F2_xAxis { get { return _xAxis; } private set { _xAxis = value; } }
+        public static int F2_yAxis { get { return _yAxis; } set { _yAxis = value; } }
         #endregion
+
+
     }
 }

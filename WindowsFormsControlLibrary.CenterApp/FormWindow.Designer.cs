@@ -54,7 +54,6 @@
             this.textAppSelect.Size = new System.Drawing.Size(295, 20);
             this.textAppSelect.TabIndex = 0;
             this.textAppSelect.Text = "Enter program name here:";
-            this.textAppSelect.TextChanged += new System.EventHandler(this.textAppSelect_TextChanged);
             // 
             // buttonCenter
             // 
@@ -94,7 +93,6 @@
             this.textBoxArrowRight.TabIndex = 4;
             this.textBoxArrowRight.Text = "0";
             this.textBoxArrowRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxArrowRight.TextChanged += new System.EventHandler(this.TextBoxArrowRight_TextChanged);
             // 
             // buttonArrowUp
             // 
@@ -133,7 +131,6 @@
             this.textBoxArrowLeft.TabIndex = 8;
             this.textBoxArrowLeft.Text = "0";
             this.textBoxArrowLeft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxArrowLeft.TextChanged += new System.EventHandler(this.TextBoxArrowLeft_TextChanged);
             // 
             // buttonArrowDown
             // 

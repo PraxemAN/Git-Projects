@@ -9,9 +9,11 @@ namespace WindowsFormsControlLibrary.CenterApp
 {
     class Method
     {
-        private static FormWindow tempF1 = new FormWindow();
-        private static SubForm tempF2 = new SubForm();
+        //I need these to update the real ones
+        private FormWindow tempF1 = new FormWindow();
+        private SubForm tempF2 = new SubForm();
 
+        //easy to reference blank than retyping "0"
         private const string blank = "0";
 
         //form 1 
@@ -22,10 +24,10 @@ namespace WindowsFormsControlLibrary.CenterApp
         private static int _xAxis = SubForm.F2_xAxis;
         private static int _yAxis = SubForm.F2_yAxis;
 
-        public static void main(String[] args)
-        {
+        //public static void Main(String[] args)
+        //{
            
-        }
+        //}
 
         /// <summary>
         /// Method both forms can call to avoid redundancy
@@ -33,9 +35,9 @@ namespace WindowsFormsControlLibrary.CenterApp
         /// <param name="_form">true for FormWindow()main, false for SubForm</param>
         /// <param name="axis">true for X-Axis, false for Y-Axis</param>
         /// <param name="num">number needing placed</param>
-        public static void AdjustText(bool _form, bool axis, int num)
+        internal void AdjustText(bool _form, bool axis, int num)
         {
-            if(_form)
+            if(_form) //FormWindow
             {
                 if (axis)
                 {
@@ -64,7 +66,7 @@ namespace WindowsFormsControlLibrary.CenterApp
                     }
                 }
             }
-            else //form 2 
+            else //SubForm
             {
                 if (axis)
                 {
@@ -93,6 +95,30 @@ namespace WindowsFormsControlLibrary.CenterApp
                     }
                 }
             }
-        }
+        }//End of AdjustText
+
+
+        /// <summary>
+        /// Checks to see if the given string is an int
+        /// </summary>
+        /// <param name="neg">true if the number is negative</param>
+        /// <param name="axis">true(_xAxis) false(_yAxis)</param>
+        /// <param name="checkMe">changed textbox text</param>
+        /// <returns></returns>
+        public bool CheckText(bool neg, string checkMe)
+        {
+            if(neg && !checkMe.StartsWith("-")) { checkMe.Insert(0, "-"); }
+            foreach (char element in checkMe)
+            {
+                if (element == 45) { continue; }
+                if (!(element >= 48 && element <= 57))
+                {
+                    MessageBox.Show("Not a valid number"); 
+                    return false;
+                }
+            }
+            return true;
+        }//end CheckText
+
     }
 }

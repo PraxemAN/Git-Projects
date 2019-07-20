@@ -57,6 +57,7 @@
             this.textBoxLeftArrow.Name = "textBoxLeftArrow";
             this.textBoxLeftArrow.Size = new System.Drawing.Size(75, 20);
             this.textBoxLeftArrow.TabIndex = 1;
+            this.textBoxLeftArrow.Text = "0";
             this.textBoxLeftArrow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelInstruct
@@ -77,6 +78,7 @@
             this.buttonRightArrow.TabIndex = 3;
             this.buttonRightArrow.Text = "right";
             this.buttonRightArrow.UseVisualStyleBackColor = true;
+            this.buttonRightArrow.Click += new System.EventHandler(this.ButtonRightArrow_Click);
             // 
             // textBoxRightArrow
             // 
@@ -84,6 +86,7 @@
             this.textBoxRightArrow.Name = "textBoxRightArrow";
             this.textBoxRightArrow.Size = new System.Drawing.Size(75, 20);
             this.textBoxRightArrow.TabIndex = 4;
+            this.textBoxRightArrow.Text = "0";
             this.textBoxRightArrow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonUpArrow
@@ -94,6 +97,7 @@
             this.buttonUpArrow.TabIndex = 5;
             this.buttonUpArrow.Text = "up";
             this.buttonUpArrow.UseVisualStyleBackColor = true;
+            this.buttonUpArrow.Click += new System.EventHandler(this.ButtonUpArrow_Click);
             // 
             // textBoxUpArrow
             // 
@@ -101,6 +105,7 @@
             this.textBoxUpArrow.Name = "textBoxUpArrow";
             this.textBoxUpArrow.Size = new System.Drawing.Size(75, 20);
             this.textBoxUpArrow.TabIndex = 6;
+            this.textBoxUpArrow.Text = "0";
             this.textBoxUpArrow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonDownArrow
@@ -111,6 +116,7 @@
             this.buttonDownArrow.TabIndex = 7;
             this.buttonDownArrow.Text = "down";
             this.buttonDownArrow.UseVisualStyleBackColor = true;
+            this.buttonDownArrow.Click += new System.EventHandler(this.ButtonDownArrow_Click);
             // 
             // textBoxDownArrow
             // 
@@ -118,6 +124,7 @@
             this.textBoxDownArrow.Name = "textBoxDownArrow";
             this.textBoxDownArrow.Size = new System.Drawing.Size(75, 20);
             this.textBoxDownArrow.TabIndex = 8;
+            this.textBoxDownArrow.Text = "0";
             this.textBoxDownArrow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonAcceptChange

@@ -15,11 +15,11 @@ namespace WindowsFormsControlLibrary.CenterApp
     {
         Form opener;
         private FormWindow formWindow;
+        private Helper HelperC;
 
         private static int _xAxis = 0;
         private static int _yAxis = 0;
 
-        Method tempMethod = new Method();
 
         public SubForm()
         {
@@ -31,7 +31,10 @@ namespace WindowsFormsControlLibrary.CenterApp
             this.formWindow = formWindow;
             InitializeComponent();
             opener = ParentForm;
+            HelperC = new Helper(formWindow);
         }
+       
+
 
         private void SubForm_Load(object sender, EventArgs e)
         {

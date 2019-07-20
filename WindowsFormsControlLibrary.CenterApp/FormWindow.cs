@@ -24,7 +24,10 @@ namespace WindowsFormsControlLibrary.CenterApp
         private bool firstDel = false;
 
         //to utilize the methods I make my own instance
-        Method tempMethod = new Method();
+        //Method tempMethod = new Method();
+        Form thisWindow = Form;
+
+        Helper helperC = new Helper(this.formWindow = )
 
         #region DLL Imports
         //find window

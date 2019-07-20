@@ -9,49 +9,64 @@ namespace WindowsFormsControlLibrary.CenterApp
 {
     class Helper
     {
-        //I need these to update the real ones
-        private FormWindow tempF1 = new FormWindow();
-        private SubForm tempF2 = new SubForm();
+        private Form _form;
 
-        //easy to reference blank than retyping "0"
+        //private FormWindow tempF1 = new FormWindow();
+        //private SubForm tempF2 = new SubForm();
+
         private const string blank = "0";
 
-        //form 1 
-        private static int _F1xAxis = FormWindow.F1_xAxis;
-        private static int _F1yAxis = FormWindow.F1_yAxis;
+        private static int _F1xAxis; // = FormWindow.F1_xAxis;
+        private static int _F1yAxis; // = FormWindow.F1_yAxis;
 
-        //form 2
         private static int _F2xAxis; // = SubForm.F2_xAxis;
         private static int _F2yAxis; // = SubForm.F2_yAxis;
+        private FormWindow formWindow;
 
-        public Helper()
+        public Helper(Form form)
         {
-            _F2xAxis = Int32.Parse(SubForm.textBoxLeftArrow.Text) + Int32.Parse(SubForm.textBoxRightArrow.Text);
+            _form = form;
 
+            //_F2xAxis = Int32.Parse(SubForm.textBoxLeftArrow.Text) + Int32.Parse(SubForm.textBoxRightArrow.Text);
+        }
 
+        public Helper(FormWindow formWindow)
+        {
+            this.formWindow = formWindow;
         }
 
         //public static void Main(String[] args)
         //{
-           
+
         //}
+
+        private void UpdateFields()
+        {
+            _F1xAxis = FormWindow.F1_xAxis;
+            _F1yAxis = FormWindow.F1_yAxis;
+            _F2xAxis = SubForm.F2_xAxis;
+            _F2yAxis = SubForm.F2_yAxis;
+        }
 
         /// <summary>
         /// Method both forms can call to avoid redundancy
         /// </summary>
         /// <param name="_form">true for FormWindow()main, false for SubForm</param>
         /// <param name="axis">true for X-Axis, false for Y-Axis</param>
-        /// <param name="num">number needing placed</param>
-        internal void AdjustText(bool _form, bool axis, int num)
+        /// <param name="number">number needing placed</param>
+        internal void AdjustText(bool _form, bool axis)
         {
+            UpdateFields();
+
             if(_form) //FormWindow
             {
                 if (axis)
                 {
                     if (_F1xAxis >= 0)
                     {
-                        tempF1.TextBoxArrowRight = _F1xAxis.ToString();
-                        tempF1.TextBoxArrowLeft = blank;
+                        //Uh...shoot
+                        _form.TextBoxArrowRight = _F1xAxis.ToString();
+                        _form.TextBoxArrowLeft = blank;
                     }
                     else if (_F1xAxis <= 0)
                     {

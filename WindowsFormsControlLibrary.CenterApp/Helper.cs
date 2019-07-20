@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsControlLibrary.CenterApp
 {
-    class Method
+    class Helper
     {
         //I need these to update the real ones
         private FormWindow tempF1 = new FormWindow();
@@ -17,12 +17,19 @@ namespace WindowsFormsControlLibrary.CenterApp
         private const string blank = "0";
 
         //form 1 
-        private static int xAxis = FormWindow.F1_xAxis;
-        private static int yAxis = FormWindow.F1_yAxis;
+        private static int _F1xAxis = FormWindow.F1_xAxis;
+        private static int _F1yAxis = FormWindow.F1_yAxis;
 
         //form 2
-        private static int _xAxis = SubForm.F2_xAxis;
-        private static int _yAxis = SubForm.F2_yAxis;
+        private static int _F2xAxis; // = SubForm.F2_xAxis;
+        private static int _F2yAxis; // = SubForm.F2_yAxis;
+
+        public Helper()
+        {
+            _F2xAxis = Int32.Parse(SubForm.textBoxLeftArrow.Text) + Int32.Parse(SubForm.textBoxRightArrow.Text);
+
+
+        }
 
         //public static void Main(String[] args)
         //{
@@ -41,27 +48,27 @@ namespace WindowsFormsControlLibrary.CenterApp
             {
                 if (axis)
                 {
-                    if (xAxis >= 0)
+                    if (_F1xAxis >= 0)
                     {
-                        tempF1.TextBoxArrowRight = xAxis.ToString();
+                        tempF1.TextBoxArrowRight = _F1xAxis.ToString();
                         tempF1.TextBoxArrowLeft = blank;
                     }
-                    else if (xAxis <= 0)
+                    else if (_F1xAxis <= 0)
                     {
-                        tempF1.TextBoxArrowLeft = xAxis.ToString();
+                        tempF1.TextBoxArrowLeft = _F1xAxis.ToString();
                         tempF1.TextBoxArrowRight = blank;
                     }
                 }
                 else if (!axis)
                 {
-                    if (yAxis >= 0)
+                    if (_F1yAxis >= 0)
                     {
-                        tempF1.TextBoxArrowUp = yAxis.ToString();
+                        tempF1.TextBoxArrowUp = _F1yAxis.ToString();
                         tempF1.TextBoxArrowDown = blank;
                     }
-                    else if (yAxis <= 0)
+                    else if (_F1yAxis <= 0)
                     {
-                        tempF1.TextBoxArrowDown = yAxis.ToString();
+                        tempF1.TextBoxArrowDown = _F1yAxis.ToString();
                         tempF1.TextBoxArrowUp = blank;
                     }
                 }
@@ -70,27 +77,27 @@ namespace WindowsFormsControlLibrary.CenterApp
             {
                 if (axis)
                 {
-                    if (_xAxis >= 0)
+                    if (_F2xAxis >= 0)
                     {
-                        tempF2.TextBoxRightArrow = yAxis.ToString();
+                        tempF2.TextBoxRightArrow = _F1yAxis.ToString();
                         tempF2.TextBoxLeftArrow = blank;
                     }
-                    else if (_xAxis <= 0)
+                    else if (_F2xAxis <= 0)
                     {
-                        tempF2.TextBoxLeftArrow = yAxis.ToString();
+                        tempF2.TextBoxLeftArrow = _F1yAxis.ToString();
                         tempF2.TextBoxRightArrow = blank;
                     }
                 }
                 else if (!axis)
                 {
-                    if (_yAxis >= 0)
+                    if (_F2yAxis >= 0)
                     {
-                        tempF2.TextBoxUpArrow = yAxis.ToString();
+                        tempF2.TextBoxUpArrow = _F1yAxis.ToString();
                         tempF2.TextBoxDownArrow = blank;
                     }
-                    else if (_yAxis <= 0)
+                    else if (_F2yAxis <= 0)
                     {
-                        tempF2.TextBoxDownArrow = yAxis.ToString();
+                        tempF2.TextBoxDownArrow = _F1yAxis.ToString();
                         tempF2.TextBoxUpArrow = blank;
                     }
                 }
@@ -102,7 +109,7 @@ namespace WindowsFormsControlLibrary.CenterApp
         /// Checks to see if the given string is an int
         /// </summary>
         /// <param name="neg">true if the number is negative</param>
-        /// <param name="axis">true(_xAxis) false(_yAxis)</param>
+        /// <param name="axis">true(_F2xAxis) false(_F2yAxis)</param>
         /// <param name="checkMe">changed textbox text</param>
         /// <returns></returns>
         public bool CheckText(bool neg, string checkMe)

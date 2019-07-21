@@ -135,6 +135,7 @@
             this.buttonAcceptChange.TabIndex = 9;
             this.buttonAcceptChange.Text = "Accept";
             this.buttonAcceptChange.UseVisualStyleBackColor = true;
+            this.buttonAcceptChange.Click += new System.EventHandler(this.ButtonAcceptChange_Click);
             // 
             // buttonDone
             // 

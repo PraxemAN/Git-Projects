@@ -57,7 +57,7 @@
             // 
             // buttonCenter
             // 
-            this.buttonCenter.Location = new System.Drawing.Point(162, 83);
+            this.buttonCenter.Location = new System.Drawing.Point(159, 83);
             this.buttonCenter.Name = "buttonCenter";
             this.buttonCenter.Size = new System.Drawing.Size(75, 23);
             this.buttonCenter.TabIndex = 1;
@@ -76,7 +76,7 @@
             // 
             // buttonArrowRight
             // 
-            this.buttonArrowRight.Location = new System.Drawing.Point(93, 138);
+            this.buttonArrowRight.Location = new System.Drawing.Point(85, 138);
             this.buttonArrowRight.Name = "buttonArrowRight";
             this.buttonArrowRight.Size = new System.Drawing.Size(75, 23);
             this.buttonArrowRight.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             // textBoxArrowRight
             // 
-            this.textBoxArrowRight.Location = new System.Drawing.Point(93, 112);
+            this.textBoxArrowRight.Location = new System.Drawing.Point(85, 112);
             this.textBoxArrowRight.Name = "textBoxArrowRight";
             this.textBoxArrowRight.Size = new System.Drawing.Size(75, 20);
             this.textBoxArrowRight.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             // buttonArrowUp
             // 
-            this.buttonArrowUp.Location = new System.Drawing.Point(227, 138);
+            this.buttonArrowUp.Location = new System.Drawing.Point(314, 138);
             this.buttonArrowUp.Name = "buttonArrowUp";
             this.buttonArrowUp.Size = new System.Drawing.Size(75, 23);
             this.buttonArrowUp.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             // textBoxArrowUp
             // 
-            this.textBoxArrowUp.Location = new System.Drawing.Point(227, 112);
+            this.textBoxArrowUp.Location = new System.Drawing.Point(314, 112);
             this.textBoxArrowUp.Name = "textBoxArrowUp";
             this.textBoxArrowUp.Size = new System.Drawing.Size(75, 20);
             this.textBoxArrowUp.TabIndex = 6;
@@ -114,7 +114,7 @@
             // 
             // buttonArrowLeft
             // 
-            this.buttonArrowLeft.Location = new System.Drawing.Point(11, 138);
+            this.buttonArrowLeft.Location = new System.Drawing.Point(3, 138);
             this.buttonArrowLeft.Name = "buttonArrowLeft";
             this.buttonArrowLeft.Size = new System.Drawing.Size(75, 23);
             this.buttonArrowLeft.TabIndex = 7;
@@ -124,7 +124,7 @@
             // 
             // textBoxArrowLeft
             // 
-            this.textBoxArrowLeft.Location = new System.Drawing.Point(11, 112);
+            this.textBoxArrowLeft.Location = new System.Drawing.Point(3, 112);
             this.textBoxArrowLeft.Name = "textBoxArrowLeft";
             this.textBoxArrowLeft.Size = new System.Drawing.Size(75, 20);
             this.textBoxArrowLeft.TabIndex = 8;
@@ -133,7 +133,7 @@
             // 
             // buttonArrowDown
             // 
-            this.buttonArrowDown.Location = new System.Drawing.Point(308, 138);
+            this.buttonArrowDown.Location = new System.Drawing.Point(233, 138);
             this.buttonArrowDown.Name = "buttonArrowDown";
             this.buttonArrowDown.Size = new System.Drawing.Size(75, 23);
             this.buttonArrowDown.TabIndex = 9;
@@ -143,7 +143,7 @@
             // 
             // textBoxArrowDown
             // 
-            this.textBoxArrowDown.Location = new System.Drawing.Point(308, 112);
+            this.textBoxArrowDown.Location = new System.Drawing.Point(233, 112);
             this.textBoxArrowDown.Name = "textBoxArrowDown";
             this.textBoxArrowDown.Size = new System.Drawing.Size(74, 20);
             this.textBoxArrowDown.TabIndex = 10;
@@ -206,7 +206,7 @@
             this.Controls.Add(this.buttonCenter);
             this.Controls.Add(this.textAppSelect);
             this.Name = "FormWindow";
-            this.Size = new System.Drawing.Size(392, 181);
+            this.Size = new System.Drawing.Size(392, 169);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -218,7 +218,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox textAppSelect;
-        private System.Windows.Forms.Button buttonCenter;
         private System.Windows.Forms.Label labelExplanation;
         private System.Windows.Forms.Button buttonArrowRight;
         private System.Windows.Forms.TextBox textBoxArrowRight;
@@ -232,5 +231,6 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem cornerAdjustToolStripMenuItem;
         private System.Windows.Forms.Button buttonDelAppTB;
+        internal System.Windows.Forms.Button buttonCenter;
     }
 }

@@ -14,7 +14,7 @@ namespace WindowsFormsControlLibrary.CenterApp
     public partial class SubForm : Form
     {
         Form opener;
-        private SubForm formWindow;
+        private SubForm thisWindow;
         private Helper helperC;
 
         private static int _xAxis = 0;
@@ -23,15 +23,19 @@ namespace WindowsFormsControlLibrary.CenterApp
         public SubForm(FormWindow formWindow)
         {
             //formWindow = this;
-            this.formWindow = formWindow;
+            //this.formWindow = formWindow;
             InitializeComponent();
             opener = ParentForm;
-            helperC = new Helper(formWindow);
+            
+
+            //this.ButtonAcceptChange.Click += new System.EventHandler(formWindow.ButtonCenter_Click);
         }
 
         private void SubForm_Load(object sender, EventArgs e)
         {
             //FormWindow.ArrowAdjust(true, 1);
+            thisWindow = this;
+            helperC = new Helper(thisWindow);
         }
 
         private void LabelInstruct_Click(object sender, EventArgs e)
@@ -47,28 +51,24 @@ namespace WindowsFormsControlLibrary.CenterApp
         }
 
         #region Arrow button calls
-        //left button iteration
         private void ButtonLeftArrow_Click(object sender, EventArgs e)
         {
             _xAxis--;
             helperC.AdjustText(false, true);
         }
 
-        //right button iteration
         private void ButtonRightArrow_Click(object sender, EventArgs e)
         {
             _xAxis++;
             helperC.AdjustText(false, true);
         }
 
-        //up button iteration
         private void ButtonUpArrow_Click(object sender, EventArgs e)
         {
             _yAxis++;
             helperC.AdjustText(false, false);
         }
 
-        //down button iteration
         private void ButtonDownArrow_Click(object sender, EventArgs e)
         {
             _yAxis--;
@@ -98,9 +98,13 @@ namespace WindowsFormsControlLibrary.CenterApp
             set { textBoxRightArrow.Text = value; }
         }
 
-        public static int F2_xAxis { get { return _xAxis; } private set { _xAxis = value; } }
+        public static int F2_xAxis { get { return _xAxis; } set { _xAxis = value; } }
         public static int F2_yAxis { get { return _yAxis; } set { _yAxis = value; } }
         #endregion
 
+        private void ButtonAcceptChange_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

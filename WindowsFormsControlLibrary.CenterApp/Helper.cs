@@ -9,11 +9,8 @@ namespace WindowsFormsControlLibrary.CenterApp
 {
     class Helper
     {
-        private Form _form;
-
-
-        //private FormWindow tempF1 = new FormWindow();
-        //private SubForm tempF2 = new SubForm();
+        private SubForm _subForm;
+        private FormWindow _formWindow;
 
         private const string blank = "0";
 
@@ -22,29 +19,16 @@ namespace WindowsFormsControlLibrary.CenterApp
         private static int _F2xAxis; // = SubForm.F2_xAxis;
         private static int _F2yAxis; // = SubForm.F2_yAxis;
 
-        private FormWindow formWindow;
 
-        public Helper()
+        public Helper(SubForm form)
         {
-
-        }
-
-        public Helper(Form form)
-        {
-            _form = form;
-
-            //_F2xAxis = Int32.Parse(SubForm.textBoxLeftArrow.Text) + Int32.Parse(SubForm.textBoxRightArrow.Text);
+            _subForm = form;
         }
 
         public Helper(FormWindow formWindow)
         {
-            this.formWindow = formWindow;
+            this._formWindow = formWindow;
         }
-
-        //public static void Main(String[] args)
-        //{
-
-        //}
 
         private void UpdateFields()
         {
@@ -58,66 +42,63 @@ namespace WindowsFormsControlLibrary.CenterApp
         /// Method both forms can call to avoid redundancy
         /// </summary>
         /// <param name="isFormWindow">true for FormWindow, false for SubForm</param>
-        /// <param name="axis">true for X-Axis, false for Y-Axis</param>
+        /// <param name="isxAxis">true for X-Axis, false for Y-Axis</param>
         /// <param name="number">number needing placed</param>
-        internal void AdjustText(bool isFormWindow, bool axis)
+        internal void AdjustText(bool isFormWindow, bool isxAxis)
         {
             UpdateFields();
 
             if (isFormWindow) //FormWindow
             {
-                if (axis)
+                if (isxAxis)
                 {
                     if (_F1xAxis >= 0)
                     {
-                        formWindow.TextBoxArrowRight = _F1xAxis.ToString();
-                        formWindow.TextBoxArrowLeft = blank;
+                        _formWindow.TextBoxArrowRight = _F1xAxis.ToString();
+                        _formWindow.TextBoxArrowLeft = blank;
                     }
-                    else if (_F1xAxis <= 0)
+                    else if (_F1xAxis < 0)
                     {
-                        formWindow.TextBoxArrowLeft = _F1xAxis.ToString();
-                        formWindow.TextBoxArrowRight = blank;
+                        _formWindow.TextBoxArrowLeft = _F1xAxis.ToString();
                     }
                 }
-                else if (!axis)
+                else if (!isxAxis)
                 {
                     if (_F1yAxis >= 0)
                     {
-                        formWindow.TextBoxArrowDown = blank;
+                        _formWindow.TextBoxArrowUp = _F1yAxis.ToString();
+                        _formWindow.TextBoxArrowDown = blank;
                     }
-                    else if (_F1yAxis <= 0)
+                    else if (_F1yAxis < 0)
                     {
-                        formWindow.TextBoxArrowDown = _F1yAxis.ToString();
-                        formWindow.TextBoxArrowUp = blank;
+                        _formWindow.TextBoxArrowDown = _F1yAxis.ToString();
                     }
                 }
             }
             else //SubForm
             {
-                if (axis)
+                if (isxAxis)
                 {
                     if (_F2xAxis >= 0)
                     {
-                        formWindow.TextBoxRightArrow = _F1yAxis.ToString();
-                        formWindow.TextBoxLeftArrow = blank;
+                        _subForm.TextBoxRightArrow = _F2xAxis.ToString();
+                        _subForm.TextBoxLeftArrow = blank;
                     }
-                    else if (_F2xAxis <= 0)
+                    else if (_F2xAxis < 0)
                     {
-                        tempF2.TextBoxLeftArrow = _F1yAxis.ToString();
-                        tempF2.TextBoxRightArrow = blank;
+                        _subForm.TextBoxLeftArrow = _F2xAxis.ToString();
                     }
                 }
-                else if (!axis)
+                else if (!isxAxis)
                 {
                     if (_F2yAxis >= 0)
                     {
-                        tempF2.TextBoxUpArrow = _F1yAxis.ToString();
-                        tempF2.TextBoxDownArrow = blank;
+                        _subForm.TextBoxUpArrow = _F2yAxis.ToString();
+                        _subForm.TextBoxDownArrow = blank;
                     }
-                    else if (_F2yAxis <= 0)
+                    else if (_F2yAxis < 0)
                     {
-                        tempF2.TextBoxDownArrow = _F1yAxis.ToString();
-                        tempF2.TextBoxUpArrow = blank;
+                        _subForm.TextBoxDownArrow = _F2yAxis.ToString();
                     }
                 }
             }

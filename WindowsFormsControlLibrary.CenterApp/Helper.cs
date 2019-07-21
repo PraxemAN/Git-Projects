@@ -125,7 +125,7 @@ namespace WindowsFormsControlLibrary.CenterApp
                 }
             }
             return true;
-        }//end CheckText
+        }//end CheckText 
 
     }
 }
